@@ -11,7 +11,8 @@
 }
 
 html {
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -26,7 +27,14 @@ body {
 
     font: -apple-system-short-body;
     text-align: center;
+    opacity: 0;
 }
+
+@keyframes fadeIn {
+  0% { opacity:0;}
+  100% { opacity:1;}
+}
+.fadeIn {animation:fadeIn 1s ease 0.5s forwards;}
 
 body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
     display: none;
@@ -57,5 +65,70 @@ body.state-off :is(.state-on, .state-unknown) {
 }
 
 button {
-    font-size: 1em;
+  -webkit-appearance: none;
+  border-width: 0;
+  background-color: rgb(59 134 246);
+  color: white;
+  min-width: 80vw;
+  border-radius: 25px;
+  padding: 10px 0;
+  font-size: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button.active,
+button:active {
+  background-color: rgb(209 209 213);
+}
+
+body.platform-mac button {
+  min-width: 70vw;
+  border-radius: 6px;
+  padding: 5px 0;
+  background-color: rgb(52 120 246);
+}
+
+body.platform-mac button:active,
+body.platform-mac button:focus {
+  background-color: rgb(47 108 222);
+}
+
+p {
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+body.platform-ios p {
+  width: 80vw;
+}
+
+body.platform-mac p {
+  margin: 0 auto;
+}
+
+#app-icon {
+  width: 128px;
+  height: 128px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(icon-default.png);
+}
+
+@media (prefers-color-scheme: dark) {
+  #app-icon {
+    background-image: url(icon-dark.png);
+  }
+}
+
+@supports (-apple-visual-effect: -apple-system-glass-material) {
+  html {
+    background: transparent;
+    -apple-visual-effect: -apple-system-glass-material;
+  }
+  
+  body {
+    background: transparent;
+  }
 }

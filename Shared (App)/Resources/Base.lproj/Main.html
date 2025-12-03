@@ -10,11 +10,13 @@
     <script src="../Script.js" defer></script>
 </head>
 <body>
-    <img src="../Icon.png" width="128" height="128" alt="CleanURL Icon">
-    <p class="platform-ios">You can turn on CleanURL’s Safari extension in Settings.</p>
+    <div id="app-icon"></div>
+    <p class="platform-ios">You can turn on CleanURL’s Safari extension in the iOS Settings. Please note that you need to open Safari settings manually. By tapping the button below, you will be redirected to the app's settings page. To enable the extension, go to Safari’s settings and activate it.</p>
     <p class="platform-mac state-unknown">You can turn on CleanURL’s extension in Safari Extensions preferences.</p>
     <p class="platform-mac state-on">CleanURL’s extension is currently on. You can turn it off in Safari Extensions preferences.</p>
     <p class="platform-mac state-off">CleanURL’s extension is currently off. You can turn it on in Safari Extensions preferences.</p>
     <button class="platform-mac open-preferences">Quit and Open Safari Extensions Preferences…</button>
+    <button class="platform-ios open-settings">Open Settings</button>
+    <button class="support-button">Open Support Page</button>
 </body>
 </html>
