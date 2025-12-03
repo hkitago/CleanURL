@@ -25,26 +25,35 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        #if os(macOS)
+        webView.setValue(false, forKey: "drawsBackground")
+        webView.setValue(NSColor.clear, forKey: "backgroundColor")
+        #endif
+
         self.webView.navigationDelegate = self
 
-#if os(iOS)
+        #if os(iOS)
         self.webView.scrollView.isScrollEnabled = false
-#endif
+        #endif
 
         self.webView.configuration.userContentController.add(self, name: "controller")
 
-        self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+        self.webView.loadFileURL(
+            Bundle.main.url(forResource: "Main", withExtension: "html")!,
+            allowingReadAccessTo: Bundle.main.resourceURL!
+        )
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-#if os(iOS)
+
+        #if os(iOS)
         webView.evaluateJavaScript("show('ios')")
-#elseif os(macOS)
+
+        #elseif os(macOS)
         webView.evaluateJavaScript("show('mac')")
 
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
             guard let state = state, error == nil else {
-                // Insert code to inform the user that something went wrong.
                 return
             }
 
@@ -56,26 +65,46 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
                 }
             }
         }
-#endif
+        #endif
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-#if os(macOS)
-        if (message.body as! String != "open-preferences") {
+
+        let messageBody = message.body as! String
+        var url: URL?
+
+        if messageBody == "open-support" {
+            url = URL(string: "https://github.com/hkitago/CleanURL/")
+        }
+
+        #if os(macOS)
+
+        if messageBody == "open-preferences" {
+            SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
+                guard error == nil else { return }
+
+                DispatchQueue.main.async {
+                    NSApp.terminate(self)
+                }
+            }
             return
         }
 
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            guard error == nil else {
-                // Insert code to inform the user that something went wrong.
-                return
-            }
-
-            DispatchQueue.main.async {
-                NSApp.terminate(self)
-            }
+        if let validURL = url {
+            NSWorkspace.shared.open(validURL)
         }
-#endif
-    }
 
+        #elseif os(iOS)
+
+        if messageBody == "open-settings" {
+            url = URL(string: UIApplication.openSettingsURLString)
+        }
+
+        if let validURL = url {
+            UIApplication.shared.open(validURL)
+        }
+
+        #endif
+    }
 }
+
