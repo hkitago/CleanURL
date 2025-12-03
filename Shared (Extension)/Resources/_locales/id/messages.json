@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Bersihkan dan sederhanakan URL secara otomatis dengan menghapus pelacakan yang tidak perlu dan parameter query.",
+    "description": "Description of what the extension does."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Tự động làm sạch và đơn giản hóa URL bằng cách loại bỏ theo dõi không cần thiết và tham số truy vấn.",
+    "description": "Description of what the extension does."
+  }
+}

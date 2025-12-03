@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Rensa och förenkla URL:er automatiskt genom att ta bort onödig spårning och frågeparametrar.",
+    "description": "Description of what the extension does."
+  }
+}

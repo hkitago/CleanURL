@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Siivoa ja yksinkertaista URL‑osoitteita automaattisesti poistamalla tarpeeton seuranta ja kyselyparametrit.",
+    "description": "Description of what the extension does."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "自动清理和简化 URL，移除不必要的跟踪信息和查询参数。",
+    "description": "Description of what the extension does."
+  }
+}

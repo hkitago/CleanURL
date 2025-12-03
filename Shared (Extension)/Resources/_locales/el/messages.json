@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Καθαρίστε και απλοποιήστε αυτόματα τις διευθύνσεις URL αφαιρώντας περιττά tracking και παραμέτρους ερωτήματος.",
+    "description": "Description of what the extension does."
+  }
+}

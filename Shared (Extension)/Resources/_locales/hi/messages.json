@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "अनावश्यक ट्रैकिंग और क्वेरी पैरामीटर हटाकर URL को स्वचालित रूप से साफ़ और सरल बनाएं।",
+    "description": "Description of what the extension does."
+  }
+}

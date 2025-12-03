@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "불필요한 추적 정보와 쿼리 매개변수를 제거해 URL을 자동으로 정리하고 단순화합니다。",
+    "description": "Description of what the extension does."
+  }
+}

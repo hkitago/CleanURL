@@ -1,0 +1,10 @@
+{
+  "extension_name": {
+    "message": "CleanURL",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "不要なトラッキングやクエリパラメータを削除して、URL を自動に簡単な形にします。",
+    "description": "Description of what the extension does."
+  }
+}
