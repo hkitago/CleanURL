@@ -22,7 +22,7 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ## Version History
 
-### 1.0 - 2025-12
+### 1.0 - 2025-12-04
 
 - Initial release with basic features
 
